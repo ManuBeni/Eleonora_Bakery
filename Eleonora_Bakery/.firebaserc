@@ -1,6 +1,7 @@
 {
   "projects": {
-    "staging": "eleonora-bakery"
+    "staging": "eleonora-bakery",
+    "default": "eleonora-bakery"
   },
   "targets": {},
   "etags": {}
