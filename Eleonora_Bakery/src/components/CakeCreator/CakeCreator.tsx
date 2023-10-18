@@ -56,7 +56,7 @@ const BookingForm: React.FC = () => {
  const [formData, setFormData] = useState(initialFormData);
 
 
- const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+ const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
 
     const { name, value } = event.target;
 
@@ -326,6 +326,8 @@ const BookingForm: React.FC = () => {
           name="message"
 
           id="message"
+
+          value={formData.message}
 
           onChange={handleChange}
 
