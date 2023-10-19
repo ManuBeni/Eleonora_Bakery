@@ -87,18 +87,15 @@ const BookingForm: React.FC = () => {
 
  return (
 
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4 flex flex-col items-center ">
 
       <div>
 
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-
-          Your name
-
-        </label>
+        
 
         <input
 
+          placeholder='Tu Nombre'
           type="text"
 
           name="name"
@@ -109,7 +106,7 @@ const BookingForm: React.FC = () => {
 
           onChange={handleChange}
 
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className="mt-1 placeholder-slate-50 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
 
         />
 
@@ -117,13 +114,9 @@ const BookingForm: React.FC = () => {
 
       <div>
 
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-
-          Email address
-
-        </label>
-
         <input
+
+          placeholder='Email'
 
           type="email"
 
@@ -135,7 +128,7 @@ const BookingForm: React.FC = () => {
 
           onChange={handleChange}
 
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className="mt-1 placeholder-slate-50 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
 
         />
 
@@ -143,13 +136,11 @@ const BookingForm: React.FC = () => {
 
       <div>
 
-        <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-
-          Phone number
-
-        </label>
+        
 
         <input
+
+        placeholder='Número de contacto'
 
           type="tel"
 
@@ -161,7 +152,7 @@ const BookingForm: React.FC = () => {
 
           onChange={handleChange}
 
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className="mt-1 placeholder-slate-50 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
 
         />
 
@@ -169,9 +160,9 @@ const BookingForm: React.FC = () => {
 
       <div>
 
-        <label htmlFor="date" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="date" className="block shrink-0 text-sm font-medium text-slate-50">
 
-          Event date
+          Fecha del evento
 
         </label>
 
@@ -187,7 +178,7 @@ const BookingForm: React.FC = () => {
 
           onChange={handleChange}
 
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className="mt-1 block w-full shrink-0 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
 
         />
 
@@ -195,9 +186,9 @@ const BookingForm: React.FC = () => {
 
       <div>
 
-        <label htmlFor="cakeType" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="cakeType" className="block text-sm font-medium text-slate-50">
 
-          Cake type
+          Tipo de torta
 
         </label>
 
@@ -215,7 +206,7 @@ const BookingForm: React.FC = () => {
 
         >
 
-          <option value="">Select a cake type</option>
+          <option value="">Seleccioná un tipo de torta</option>
 
           <option value="chocolate">Chocolate</option>
 
@@ -229,13 +220,11 @@ const BookingForm: React.FC = () => {
 
       <div>
 
-        <label htmlFor="flavor" className="block text-sm font-medium text-gray-700">
-
-          Flavor
-
-        </label>
+        
 
         <input
+
+          placeholder='Sabor'
 
           type="text"
 
@@ -247,7 +236,7 @@ const BookingForm: React.FC = () => {
 
           onChange={handleChange}
 
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className="mt-1 placeholder-slate-50 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
 
         />
 
@@ -255,13 +244,11 @@ const BookingForm: React.FC = () => {
 
       <div>
 
-        <label htmlFor="filling" className="block text-sm font-medium text-gray-700">
-
-          Filling
-
-        </label>
+        
 
         <input
+
+        placeholder='Relleno'
 
           type="text"
 
@@ -273,7 +260,7 @@ const BookingForm: React.FC = () => {
 
           onChange={handleChange}
 
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className="mt-1 placeholder-slate-50 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
 
         />
 
@@ -283,7 +270,7 @@ const BookingForm: React.FC = () => {
 
         <label htmlFor="size" className="block text-sm font-medium text-gray-700">
 
-          Size
+          Tamaño
 
         </label>
 
@@ -317,7 +304,7 @@ const BookingForm: React.FC = () => {
 
         <label htmlFor="message" className="block text-sm font-medium text-gray-700">
 
-          Additional message
+          Especificaciones adicionales
 
         </label>
 
@@ -341,7 +328,7 @@ const BookingForm: React.FC = () => {
 
       <div className="mb-4">
 
-        <label className="block mb-1 text-gray-500">Image</label>
+        <label className="block mb-1 text-gray-500">Imagen</label>
 
         <input
 
@@ -367,7 +354,7 @@ const BookingForm: React.FC = () => {
 
         >
 
-          Submit
+          Enviar
 
         </button>
 
