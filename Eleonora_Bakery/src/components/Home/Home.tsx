@@ -68,7 +68,7 @@ const Home = () => {
                                         transition-all duration-1000
                                         
                                         ">
-                                <div   className="mt-[9.22rem] justify-self-start bg-[#ee9e9d]">
+                                <div   className="mt-[9.19rem] justify-self-start bg-[#ee9e9d] pt-0 h-[1200px]">
                                     <ContactForm />
                                 </div>
 

@@ -50,6 +50,9 @@ const initialFormData: FormData = {
 
 };
 
+const blocks = "my-2 py-3 pl-2 placeholder-[#ee9e9d] block w-full  font-medium border-gray-300 bg-[#563c2a] shadow-sm focus:border-black focus:ring-black sm:text-sm text-[#ee9e9d]"
+const textFromBlock = "block pl-1 text-xl font-bold text-slate-50 mt-1 text-left"
+
 
 const BookingForm: React.FC = () => {
 
@@ -86,8 +89,13 @@ const BookingForm: React.FC = () => {
 
 
  return (
+<>
+  <div className='pt-0 mt-0 '>
+    <img src="public/assets/ice-cream-chocolate-bar-melting-stock-photography-chocolate-9c9f348e344548120f755219fa59b8b4.png" alt="loading..." />
+  </div>
 
-    <form onSubmit={handleSubmit} className="space-y-4 flex flex-col items-center ">
+    <form onSubmit={handleSubmit} className=" pb-10 flex flex-col pr-0 pl-0 h-max mt-[-50px] ">
+
 
       <div>
 
@@ -106,7 +114,8 @@ const BookingForm: React.FC = () => {
 
           onChange={handleChange}
 
-          className="mt-1 placeholder-slate-50 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className={blocks}
+          
 
         />
 
@@ -128,7 +137,7 @@ const BookingForm: React.FC = () => {
 
           onChange={handleChange}
 
-          className="mt-1 placeholder-slate-50 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className={blocks}
 
         />
 
@@ -152,15 +161,14 @@ const BookingForm: React.FC = () => {
 
           onChange={handleChange}
 
-          className="mt-1 placeholder-slate-50 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-
+          className={blocks}
         />
 
       </div>
 
       <div>
 
-        <label htmlFor="date" className="block shrink-0 text-sm font-medium text-slate-50">
+        <label htmlFor="date" className={textFromBlock}>
 
           Fecha del evento
 
@@ -178,19 +186,14 @@ const BookingForm: React.FC = () => {
 
           onChange={handleChange}
 
-          className="mt-1 block w-full shrink-0 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-
+          className={blocks}
         />
 
       </div>
 
       <div>
 
-        <label htmlFor="cakeType" className="block text-sm font-medium text-slate-50">
-
-          Tipo de torta
-
-        </label>
+       
 
         <select
 
@@ -202,7 +205,7 @@ const BookingForm: React.FC = () => {
 
           onChange={handleChange}
 
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className={blocks}
 
         >
 
@@ -236,7 +239,7 @@ const BookingForm: React.FC = () => {
 
           onChange={handleChange}
 
-          className="mt-1 placeholder-slate-50 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className={blocks}
 
         />
 
@@ -260,19 +263,13 @@ const BookingForm: React.FC = () => {
 
           onChange={handleChange}
 
-          className="mt-1 placeholder-slate-50 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className={blocks}
 
         />
 
       </div>
 
       <div>
-
-        <label htmlFor="size" className="block text-sm font-medium text-gray-700">
-
-          Tamaño
-
-        </label>
 
         <select
 
@@ -284,7 +281,7 @@ const BookingForm: React.FC = () => {
 
           onChange={handleChange}
 
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className={blocks}
 
         >
 
@@ -302,7 +299,7 @@ const BookingForm: React.FC = () => {
 
       <div>
 
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="message" className={textFromBlock}>
 
           Especificaciones adicionales
 
@@ -320,7 +317,7 @@ const BookingForm: React.FC = () => {
 
           rows={4}
 
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className={blocks}
 
         />
 
@@ -328,13 +325,13 @@ const BookingForm: React.FC = () => {
 
       <div className="mb-4">
 
-        <label className="block mb-1 text-gray-500">Imagen</label>
+        <label className={textFromBlock}>Imagen</label>
 
         <input
 
           type="file"
 
-          className="border border-gray-400 p-2 rounded-lg w-full"
+          className="border border-[#513623] p-2 rounded-lg w-full text-[#664e3d] "
 
           onChange={handleFileChange}
 
@@ -343,6 +340,7 @@ const BookingForm: React.FC = () => {
         />
 
       </div>
+      
 
       <div className="flex justify-center mt-5">
 
@@ -357,11 +355,12 @@ const BookingForm: React.FC = () => {
           Enviar
 
         </button>
+        
 
       </div>
 
     </form>
-
+    </>
  );
 
 };
