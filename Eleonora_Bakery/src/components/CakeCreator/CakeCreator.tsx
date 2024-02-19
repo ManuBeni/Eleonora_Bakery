@@ -21,7 +21,6 @@ interface FormData {
 
  message: string;
 
- image: File | null;
 
 }
 
@@ -46,12 +45,11 @@ const initialFormData: FormData = {
 
  message:'',
 
- image: null,
 
 };
 
 const blocks = "my-2 py-3 pl-2 placeholder-[#ee9e9d] block w-full  font-medium border-gray-300 bg-[#563c2a] shadow-sm focus:border-black focus:ring-black sm:text-sm text-[#ee9e9d]"
-const textFromBlock = "block pl-1 text-xl font-bold text-slate-50 mt-1 text-left"
+const textFromBlock = "block pl-1 text-4xl font-bold font-cookie text-[#563c2a] mt-1 text-left"
 
 
 const BookingForm: React.FC = () => {
@@ -64,15 +62,6 @@ const BookingForm: React.FC = () => {
     const { name, value } = event.target;
 
     setFormData({ ...formData, [name]: value });
-
- };
-
-
- const handleFileChange = (event: React.ChangeEvent<HTMLInputElement >) => {
-
-    const file = event.target.files ? event.target.files[0] : null;
-
-    setFormData({ ...formData, image: file });
 
  };
 
@@ -90,11 +79,11 @@ const BookingForm: React.FC = () => {
 
  return (
 <>
-  <div className='pt-0 mt-0 '>
+  <div className='pt-0 mt-0 bg-[#fffaf1]'>
     <img src="public/assets/ice-cream-chocolate-bar-melting-stock-photography-chocolate-9c9f348e344548120f755219fa59b8b4.png" alt="loading..." />
   </div>
 
-    <form onSubmit={handleSubmit} className=" pb-10 flex flex-col pr-0 pl-0 h-max mt-[-50px] ">
+    <form onSubmit={handleSubmit} className=" flex flex-col pr-0 pl-0 mt-[-15px] bg-[#fffaf1]">
 
 
       <div>
@@ -322,24 +311,6 @@ const BookingForm: React.FC = () => {
         />
 
       </div>
-
-      <div className="mb-4">
-
-        <label className={textFromBlock}>Imagen</label>
-
-        <input
-
-          type="file"
-
-          className="border border-[#513623] p-2 rounded-lg w-full text-[#664e3d] "
-
-          onChange={handleFileChange}
-
-          required
-
-        />
-
-      </div>
       
 
       <div className="flex justify-center mt-5">
@@ -348,7 +319,7 @@ const BookingForm: React.FC = () => {
 
           type="submit"
 
-          className="inline-flex items-center px-6 py-3 text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          className="inline-flex items-center px-6 py-3 mb-7 text-base font-medium rounded-md text-[#563c2a] bg-[#ee9e9d] text-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
 
         >
 
