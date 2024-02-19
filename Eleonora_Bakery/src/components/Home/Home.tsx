@@ -2,7 +2,7 @@ import HeroSection from "../HeroSection/HeroSection";
 import About from "../About/Aboout";
 const Home = () => {
 
-    const text = "{Más sobre nosotros}" 
+    
 
     return (
         <>
