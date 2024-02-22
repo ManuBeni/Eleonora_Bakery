@@ -79,11 +79,11 @@ const BookingForm: React.FC = () => {
 
  return (
 <>
-  <div className='pt-0 mt-0 bg-[#fffaf1]'>
-    <img src="public/assets/ice-cream-chocolate-bar-melting-stock-photography-chocolate-9c9f348e344548120f755219fa59b8b4.png" alt="loading..." />
+  <div className='pt-0 mt-[-17px] rounded-lg bg-[#fffaf1]'>
+    <img className="rounded-lg" src="public/assets/ice-cream-chocolate-bar-melting-stock-photography-chocolate-9c9f348e344548120f755219fa59b8b4.png" alt="loading..." />
   </div>
 
-    <form onSubmit={handleSubmit} className=" flex flex-col pr-0 pl-0 mt-[-15px] bg-[#fffaf1]">
+    <form onSubmit={handleSubmit} className=" flex flex-col pr-0 pr-6 pl-6  bg-[#fffaf1]">
 
 
       <div>

@@ -1,12 +1,32 @@
 
-import { useRef } from "react";
+import { useState } from "react";
 import ContactForm from "../CakeCreator/CakeCreator";
+import { Button, Modal } from 'flowbite-react';
+import type { CustomFlowbiteTheme } from 'flowbite-react';
+const customTheme: CustomFlowbiteTheme['modal'] = {
+
+    content: {
+        inner: "relative rounded-lg bg-[#fffaf1] shadow dark:bg-gray-700 flex flex-col max-h-[90vh]"
+    },
+    body:{
+        base:"p-0  rounded-lg "
+    },
+    header:{
+        close:{
+            base:"absolute right-3 inline-flex items-center rounded-xl bg-[#fffaf1]  text-sm text-[#563c2a] hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white ",
+            icon: "h-6 w-6"
+            
+        }
+    }
+}
+
+
 const HeroSection = () => {
 
-    const ref = useRef<null | HTMLDivElement>(null)
+    const [openModal, setOpenModal] = useState(false);
 
-    const handleCLick = () => {
-        ref.current?.scrollIntoView({ behavior: 'smooth' })
+    function onCloseModal() {
+        setOpenModal(false);
     }
 
     return (
@@ -20,57 +40,22 @@ const HeroSection = () => {
                     "url('assets/heroSection1.png')",
             }} >
             </div>
-            <div className="   ">
-                <h1 className="font-cookie text-[52px] h-35 w-[20rem] pt-5 text-left pl-10 leading-[4rem]">
+            <div className=" pl-10  ">
+                <h1 className="font-cookie text-[52px] h-35 w-[20rem] pt-5 text-left  leading-[4rem]">
                     Bienbenidos a Elena's Bakery!
                 </h1>
-                <h3 className="text-white text-left w-[17rem] pl-10">
+                <h3 className="text-white text-left w-[17rem] ">
                     Tu destino para delicias dulces hechas a tu gusto.
                 </h3>
-                <div className="relative w-[192px] group">
-                    <input onChange={handleCLick} type="checkbox"
-                        className=" mt-6
-                                absolute top-0 inset-x-0
-                                w-full h-11 z-10 
-                                ml-10 
-                                transition ease-in-out delay-150  
-                                group-hover:-translate-y-1 group-hover:scale-110  
-                                duration-300
-                                opacity-0
-                                cursor-pointer
-                                peer
-
-                        "></input>
-                    <div
-                        className="bg-white hover:bg-[#fffaf1] 
-                                            w-full absolute mt-6
-                                            transition ease-in-out delay-150  
-                                            group-hover:-translate-y-1 group-hover:scale-110  
-                                            duration-300 px-3 ml-10 text-[#513623] 
-                                            shadow-md py-2 rounded-md flex justify-self-start 
-                        ">
-                        Creá tu torta perfecta!
-                    </div>
-
-
-
-                    <div
-                        className="
-                                        sm:w-[19.5rem]
-                                        w-screen
-                                        max-h-0 
-                                        peer-checked:max-h-[2000px]
-                                        overflow-hidden 
-                                        transition-all duration-1000
-                                        
-                                        ">
-                        <div className="mt-[9.19rem] justify-self-start bg-[#fffaf1h] pt-0 ">
-                            <ContactForm />
-                        </div>
-
-                    </div>
-
-
+                <div className="pt-5">
+                    {/* change button colour and text size */}
+                    <Button  onClick={() => setOpenModal(true)}>Creá tu torta perfecta!</Button>
+                    <Modal theme={customTheme} show={openModal} size="md" onClose={onCloseModal} popup>
+                        <Modal.Header />
+                        <Modal.Body>
+                            <ContactForm></ContactForm>
+                        </Modal.Body>
+                    </Modal>
 
                 </div>
             </div>
