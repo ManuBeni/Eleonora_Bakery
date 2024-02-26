@@ -1,5 +1,6 @@
 import HeroSection from "../HeroSection/HeroSection";
 import About from "../About/Aboout";
+import Footer from "../Footer/Footer"
 const Home = () => {
 
     
@@ -20,6 +21,9 @@ const Home = () => {
                     <About/>        
                 </div>
 
+                <div>
+                    <Footer/>
+                </div>
                 
 
 

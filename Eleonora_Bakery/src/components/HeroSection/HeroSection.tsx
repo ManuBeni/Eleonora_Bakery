@@ -19,6 +19,11 @@ const customTheme: CustomFlowbiteTheme['modal'] = {
         }
     }
 }
+const customThemeBtn: CustomFlowbiteTheme['button'] = {
+    color:{
+        primary: "bg-[#fffaf1] text-[#523724] drop-shadow-md hover:bg-[#FFE8BE] focus:ring-[#9DEDEE] "
+    }
+}
 
 
 const HeroSection = () => {
@@ -49,7 +54,7 @@ const HeroSection = () => {
                 </h3>
                 <div className="pt-5">
                     {/* change button colour and text size */}
-                    <Button  onClick={() => setOpenModal(true)}>Creá tu torta perfecta!</Button>
+                    <Button theme={customThemeBtn} color="primary" onClick={() => setOpenModal(true)}>Creá tu torta perfecta!</Button>
                     <Modal theme={customTheme} show={openModal} size="md" onClose={onCloseModal} popup>
                         <Modal.Header />
                         <Modal.Body>

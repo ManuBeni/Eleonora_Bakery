@@ -3,23 +3,27 @@ import React, { useState } from 'react';
 
 interface FormData {
 
- name: string;
+  name: string;
 
- email: string;
+  email: string;
 
- phone: string;
+  phone: string;
 
- date: string;
+  date: string;
 
- cakeType: string;
+  cakeType: string;
 
- flavor: string;
+  structuredFilling: string;
 
- filling: string;
+  filling: string;
 
- cakeSize: string;
+  cakeSize: string;
 
- message: string;
+  cover: string;
+
+  decor: string;
+
+  message: string;
 
 
 }
@@ -27,312 +31,421 @@ interface FormData {
 
 const initialFormData: FormData = {
 
- name: '',
+  name: '',
 
- email: '',
+  email: '',
 
- phone: '',
+  phone: '',
 
- date: '',
+  date: '',
 
- cakeType: '',
+  cakeType: '',
 
- flavor: '',
+  structuredFilling: '',
 
- filling: '',
+  filling: '',
 
- cakeSize: '',
+  cakeSize: '',
 
- message:'',
+  cover: '',
+
+  decor: '',
+
+  message: '',
 
 
 };
 
-const blocks = "my-2 py-3 pl-2 placeholder-[#ee9e9d] block w-full  font-medium border-gray-300 bg-[#563c2a] shadow-sm focus:border-black focus:ring-black sm:text-sm text-[#ee9e9d]"
+const blocks = "my-2 py-3 pl-2 placeholder-[#FFE8BE] block w-full rounded-md font-medium border-gray-300 bg-[#563c2a] shadow-sm focus:border-black focus:ring-black sm:text-sm text-[#FFE8BE]"
 const textFromBlock = "block pl-1 text-4xl font-bold font-cookie text-[#563c2a] mt-1 text-left"
 
 
 const BookingForm: React.FC = () => {
 
- const [formData, setFormData] = useState(initialFormData);
+  const [formData, setFormData] = useState(initialFormData);
 
 
- const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
 
     const { name, value } = event.target;
 
     setFormData({ ...formData, [name]: value });
 
- };
+  };
 
 
- const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 
     event.preventDefault();
+
+    var phoneNumber = "+5493515336320"
+
+    var url = "https://wa.me/" + phoneNumber + "?text=" + "*Hola! Mi pedido de torta es el siguiente :*" + "%0a%0a" + "*Contacto :*" + "%0a" +
+    "*Nombre :* " + formData.name + "%0a" +
+    "*E-mail :* " + formData.email + "%0a" +
+    "*Teléfono :* " + formData.phone + "%0a" +
+    "*Fecha :* " + formData.date + "%0a%0a" +
+    "*Torta :* "+ "%0a" + 
+    "*Tamaño :* " + formData.cakeSize + "%0a" +
+    "*Sabor del bizcochuelo :* " + formData.cakeType + "%0a" +
+    "*Relleno con estructura :* " + formData.structuredFilling + "%0a" +
+    "*Relleno de crema :* " + formData.filling + "%0a" +
+    "*Cobertura :* " + formData.cover + "%0a" +
+    "*Decoración :* " + formData.decor + "%0a" +
+    "*Especifiaciónes Adicionales:* " + formData.message;
+
+    window.open(url, '_blank')?.focus();
 
     console.log('Form data:', formData);
 
     // Send the form data to your server or another service
 
- };
+  };
 
 
- return (
-<>
-  <div className='pt-0 mt-[-17px] rounded-lg bg-[#fffaf1]'>
-    <img className="rounded-lg" src="public/assets/ice-cream-chocolate-bar-melting-stock-photography-chocolate-9c9f348e344548120f755219fa59b8b4.png" alt="loading..." />
-  </div>
-
-    <form onSubmit={handleSubmit} className=" flex flex-col pr-0 pr-6 pl-6  bg-[#fffaf1]">
-
-
-      <div>
-
-        
-
-        <input
-
-          placeholder='Tu Nombre'
-          type="text"
-
-          name="name"
-
-          id="name"
-
-          value={formData.name}
-
-          onChange={handleChange}
-
-          className={blocks}
-          
-
-        />
-
+  return (
+    <>
+      <div className='pt-0 mt-[-17px] rounded-lg bg-[#fffaf1]'>
+        <img className="rounded-lg" src="assets/ice-cream-chocolate-bar-melting-stock-photography-chocolate-9c9f348e344548120f755219fa59b8b4.png" alt="loading..." />
       </div>
 
-      <div>
+      <form onSubmit={handleSubmit} className=" flex flex-col pr-0 pr-6 pl-6 mt-[-1.2rem] bg-[#fffaf1]">
 
-        <input
 
-          placeholder='Email'
+        <div>
 
-          type="email"
 
-          name="email"
+          <label htmlFor="date" className={textFromBlock}>
 
-          id="email"
+            Información de Contacto
 
-          value={formData.email}
+          </label>
 
-          onChange={handleChange}
 
-          className={blocks}
+          <input
 
-        />
+            placeholder='Tu Nombre'
+            type="text"
 
-      </div>
+            name="name"
 
-      <div>
+            id="name"
 
-        
+            value={formData.name}
 
-        <input
+            onChange={handleChange}
 
-        placeholder='Número de contacto'
+            className={blocks}
 
-          type="tel"
 
-          name="phone"
+          />
 
-          id="phone"
+        </div>
 
-          value={formData.phone}
+        <div>
 
-          onChange={handleChange}
+          <input
 
-          className={blocks}
-        />
+            placeholder='Email'
 
-      </div>
+            type="email"
 
-      <div>
+            name="email"
 
-        <label htmlFor="date" className={textFromBlock}>
+            id="email"
 
-          Fecha del evento
+            value={formData.email}
 
-        </label>
+            onChange={handleChange}
 
-        <input
+            className={blocks}
 
-          type="date"
+          />
 
-          name="date"
+        </div>
 
-          id="date"
+        <div>
 
-          value={formData.date}
 
-          onChange={handleChange}
 
-          className={blocks}
-        />
+          <input
 
-      </div>
+            placeholder='Número de teléfono'
 
-      <div>
+            type="tel"
 
-       
+            name="phone"
 
-        <select
+            id="phone"
 
-          name="cakeType"
+            value={formData.phone}
 
-          id="cakeType"
+            onChange={handleChange}
 
-          value={formData.cakeType}
+            className={blocks}
+          />
 
-          onChange={handleChange}
+        </div>
 
-          className={blocks}
+        <div>
 
-        >
+          <label htmlFor="date" className={textFromBlock}>
 
-          <option value="">Seleccioná un tipo de torta</option>
+            Fecha del evento
 
-          <option value="chocolate">Chocolate</option>
+          </label>
 
-          <option value="vanilla">Vanilla</option>
+          <input
 
-          <option value="red-velvet">Red Velvet</option>
+            type="date"
 
-        </select>
+            name="date"
 
-      </div>
+            id="date"
 
-      <div>
+            value={formData.date}
 
-        
+            onChange={handleChange}
 
-        <input
+            className={blocks}
+          />
 
-          placeholder='Sabor'
+        </div>
 
-          type="text"
+        <div>
 
-          name="flavor"
 
-          id="flavor"
+          <label htmlFor="cakeSize" className={textFromBlock}>
 
-          value={formData.flavor}
+            Especificaciones
 
-          onChange={handleChange}
+          </label>
 
-          className={blocks}
+          <select
 
-        />
+            name="cakeSize"
 
-      </div>
+            id="cakeSize"
 
-      <div>
+            value={formData.cakeSize}
 
-        
+            onChange={handleChange}
 
-        <input
+            className={blocks}
 
-        placeholder='Relleno'
+          >
 
-          type="text"
+            <option value="">Tamaño</option>
 
-          name="filling"
+            <option value="Grande - 20 cm">Grande - 20 cm</option>
 
-          id="filling"
+            <option value="Mediano - 18 cm">Mediano - 18 cm</option>
 
-          value={formData.filling}
+            <option value="Chico - 10 cm">Chico - 10 cm</option>
 
-          onChange={handleChange}
+          </select>
 
-          className={blocks}
+        </div>
 
-        />
+        <div>
 
-      </div>
+          <select
 
-      <div>
+            name="cakeType"
 
-        <select
+            id="cakeType"
 
-          name="cakeSize"
+            value={formData.cakeType}
 
-          id="cakeSize"
+            onChange={handleChange}
 
-          value={formData.cakeSize}
+            className={blocks}
 
-          onChange={handleChange}
+          >
 
-          className={blocks}
+            <option value="">Sabor del bizcochuelo</option>
 
-        >
+            <option value="Chocolate">Chocolate</option>
 
-          <option value="">Select a size</option>
+            <option value="Vanilla">Vanilla</option>
 
-          <option value="8-inch">8-inch</option>
+            <option value="Limon">Limón</option>
 
-          <option value="10-inch">10-inch</option>
+          </select>
 
-          <option value="12-inch">12-inch</option>
+        </div>
 
-        </select>
 
-      </div>
+        <div>
 
-      <div>
+          <select
 
-        <label htmlFor="message" className={textFromBlock}>
+            name="structuredFilling"
 
-          Especificaciones adicionales
+            id="structuredFilling"
 
-        </label>
+            value={formData.structuredFilling}
 
-        <textarea
+            onChange={handleChange}
 
-          name="message"
+            className={blocks}
 
-          id="message"
+          >
 
-          value={formData.message}
+            <option value="">Relleno con estructura</option>
 
-          onChange={handleChange}
+            <option value="DDL-chips">Dulce de leche con chips de chocolate</option>
 
-          rows={4}
+            <option value="DDL-oreo">Dulce de leche con oreos</option>
 
-          className={blocks}
+            <option value="DDL-nueces">Dulce de leche con nueces</option>
 
-        />
+            <option value="Crema-Bariloche">Crema Bariloche</option>
 
-      </div>
-      
+            <option value="Ganache-Blanco">Ganache de chocolate blanco</option>
 
-      <div className="flex justify-center mt-5">
+            <option value="Ganache-Negro">Ganache de chocolate negro</option>
 
-        <button
+          </select>
 
-          type="submit"
+        </div>
 
-          className="inline-flex items-center px-6 py-3 mb-7 text-base font-medium rounded-md text-[#563c2a] bg-[#ee9e9d] text-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        <div>
 
-        >
+          <select
 
-          Enviar
+            name="filling"
 
-        </button>
-        
+            id="filling"
 
-      </div>
+            value={formData.filling}
 
-    </form>
+            onChange={handleChange}
+
+            className={blocks}
+
+          >
+
+            <option value="">Relleno de crema</option>
+
+            <option value="Café">Café</option>
+
+            <option value="Mocca">Mocca</option>
+
+            <option value="Chocotorta">Chocotorta</option>
+
+            <option value="Oreo">Oreo</option>
+
+            <option value="Durazno">Con Duraznos</option>
+
+            <option value="Cheese">Cheese (base de queso crema con vainilla)</option>
+
+          </select>
+
+        </div>
+
+        <div>
+
+          <select
+
+            name="cover"
+
+            id="cover"
+
+            value={formData.cover}
+
+            onChange={handleChange}
+
+            className={blocks}
+
+          >
+
+            <option value="">Cobertura</option>
+
+            <option value="Butter-Cream">Butter cream</option>
+
+            <option value="Ganache-Chocolate">Ganache de chocolate</option>
+
+          </select>
+
+        </div>
+
+
+        <div>
+
+          <select
+
+            name="decor"
+
+            id="decor"
+
+            value={formData.decor}
+
+            onChange={handleChange}
+
+            className={blocks}
+
+          >
+
+            <option value="">Decoración</option>
+
+            <option value="Drip-Ch-Blanco c/ Picos">Drip de chocolate blanco con picos de relleno</option>
+
+            <option value="Drip-Ch-Negro c/ Picos">Drip de chocolate negro con picos de relleno</option>
+
+            <option value="A Pedido">A pedido (enviar fotos de ejemplo)</option>
+
+          </select>
+
+        </div>
+
+        <div>
+
+          <label htmlFor="message" className={textFromBlock}>
+
+            Especifiaciones adicionales
+
+          </label>
+
+          <textarea
+
+            name="message"
+
+            id="message"
+
+            value={formData.message}
+
+            onChange={handleChange}
+
+            rows={4}
+
+            className={blocks}
+
+          />
+
+        </div>
+
+
+        <div className="flex justify-center mt-5">
+
+          <button
+
+            type="submit"
+
+            className="inline-flex drop-shadow-md items-center px-6 py-3 mb-7 hover:bg-[#e67372] text-base font-medium rounded-md text-[#563c2a] bg-[#ee9e9d] text-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+
+          >
+
+            Enviar
+
+          </button>
+
+
+        </div>
+
+      </form>
     </>
- );
+  );
 
 };
 
