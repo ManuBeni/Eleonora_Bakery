@@ -21,7 +21,7 @@ const customTheme: CustomFlowbiteTheme['modal'] = {
 }
 const customThemeBtn: CustomFlowbiteTheme['button'] = {
     color:{
-        primary: "bg-[#fffaf1] text-[#523724] drop-shadow-md hover:bg-[#FFE8BE] focus:ring-[#9DEDEE] "
+        primary: "bg-[#fffaf1] text-[#523724] drop-shadow-md hover:bg-[#FFE8BE] text-xl z-10"
     }
 }
 
@@ -54,7 +54,7 @@ const HeroSection = () => {
                 </h3>
                 <div className="pt-5">
                     {/* change button colour and text size */}
-                    <Button theme={customThemeBtn} color="primary" onClick={() => setOpenModal(true)}>Creá tu torta perfecta!</Button>
+                    <Button  theme={customThemeBtn} color="primary"  onClick={()=>{setOpenModal(true)}}>Creá tu torta perfecta!</Button>
                     <Modal theme={customTheme} show={openModal} size="md" onClose={onCloseModal} popup>
                         <Modal.Header />
                         <Modal.Body>
@@ -62,9 +62,11 @@ const HeroSection = () => {
                         </Modal.Body>
                     </Modal>
 
+{/* theme={customThemeBtn} color="primary" */}
+
                 </div>
             </div>
-            <div className="bg-no-repeat w-[330px] h-[344px] absolute right-0 bottom-0" style={{
+            <div className="bg-no-repeat w-[330px] h-[344px] z-0 absolute right-0 bottom-0" style={{
                 backgroundImage:
                     "url('assets/heroSection2.png')",
             }}>
