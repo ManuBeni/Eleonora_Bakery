@@ -3,8 +3,9 @@ export default {
   mode:'jit',
   content: [
     	"./index.html",
-	    "./src/**/*.{js,jsx,ts,tsx}",
-      "./src/components/**/*.{js,jsx,ts,tsx}"
+	"./src/**/*.{js,jsx,ts,tsx}",
+      	"./src/components/**/*.{js,jsx,ts,tsx}",
+        "node_modules/flowbite-react/lib/esm/**/*.js"
   ],
   theme: {
     fontFamily: {
@@ -32,6 +33,10 @@ export default {
     '2xl': '1536px',
     // => @media (min-width: 1536px) { ... }
   },
-  plugins: [],
+  plugins: [
+
+	   require('flowbite/plugin'),
+
+  ],
 }
 
