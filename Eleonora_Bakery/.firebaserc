@@ -3,6 +3,24 @@
     "staging": "eleonora-bakery",
     "default": "eleonora-bakery"
   },
-  "targets": {},
+  "targets": {
+    "elena-bakery-8d6ad": {
+      "hosting": {
+        "elena-bakery-8d6ad": [
+          "elenas-bakery"
+        ],
+        "elenas-bakery": [
+          "elena-bakery-8d6ad"
+        ]
+      }
+    },
+    "eleonora-bakery": {
+      "hosting": {
+        "eleonora-bakery": [
+          "elena-bakery"
+        ]
+      }
+    }
+  },
   "etags": {}
 }
